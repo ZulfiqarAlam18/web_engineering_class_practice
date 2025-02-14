@@ -3,85 +3,93 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Web Developer Portfolio</title>
+    <title>Zulfiqar Alam - App Developer Portfolio</title>
     <style>
+      /* General Styles */
       body {
-        font-family: Arial, sans-serif;
+        font-family: "Arial", sans-serif;
         margin: 0;
         padding: 0;
         text-align: center;
-        background-color: #f9f9f9;
+        background-color: #f9fafb;
+        color: #333;
       }
 
+      /* Header */
       header {
-        background-color: #222;
+        background: linear-gradient(135deg, #1e3a8a, #0f172a);
         color: white;
-        padding: 20px;
+        padding: 30px 15px;
       }
 
       header h1 {
         margin: 0;
-        font-size: 28px;
+        font-size: 32px;
+        font-weight: bold;
       }
 
       header p {
-        margin: 5px 0 10px;
-        font-size: 16px;
+        font-size: 18px;
         font-style: italic;
-        color: #ddd;
+        margin: 5px 0;
+        color: #cbd5e1;
+      }
+
+      /* Navigation */
+      nav {
+        margin-top: 10px;
       }
 
       nav a {
         color: white;
         text-decoration: none;
         margin: 0 15px;
-        font-size: 16px;
+        font-size: 18px;
         font-weight: bold;
-        transition: color 0.3s ease;
+        transition: 0.3s;
       }
 
       nav a:hover {
-        color: #00c6ff;
+        color: #facc15;
       }
 
+      /* Main Content */
       main {
-        padding: 30px 15px;
+        padding: 50px 20px;
       }
 
       h2 {
-        margin-top: 20px;
-        font-size: 26px;
-        color: #222;
+        font-size: 28px;
+        color: #1e3a8a;
       }
 
+      /* Sections */
       .container {
         display: flex;
-        justify-content: space-around;
-        padding: 20px;
+        justify-content: center;
         flex-wrap: wrap;
+        gap: 20px;
       }
 
-      .portfolio,
-      .achievements,
-      .qualifications {
+      .section {
         width: 30%;
+        min-width: 300px;
         text-align: left;
         background: white;
         padding: 20px;
         border-radius: 8px;
         box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-        transition: transform 0.3s ease-in-out;
+        transition: transform 0.3s, box-shadow 0.3s;
       }
 
-      .portfolio:hover,
-      .achievements:hover,
-      .qualifications:hover {
+      .section:hover {
         transform: translateY(-5px);
+        box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
       }
 
       h3 {
-        font-size: 20px;
-        color: #00c6ff;
+        font-size: 22px;
+        color: #0f172a;
       }
 
       ul {
@@ -90,45 +98,62 @@
       }
 
       ul li {
-        padding: 5px 0;
+        padding: 8px 0;
+        font-size: 16px;
       }
 
+      a.button {
+        display: inline-block;
+        padding: 10px 15px;
+        background: #1e3a8a;
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+        font-weight: bold;
+        transition: background 0.3s;
+      }
+
+      a.button:hover {
+        background: #0f172a;
+      }
+
+      /* Expertise Cards */
       .expertise {
         display: flex;
         justify-content: center;
-        gap: 20px;
         flex-wrap: wrap;
-        padding: 20px;
+        gap: 20px;
+        padding: 30px 0;
       }
 
       .card {
         width: 220px;
-        border: 1px solid #ccc;
+        border: none;
         padding: 15px;
-        border-radius: 8px;
-        box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
-        transition: transform 0.3s ease;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         background-color: white;
+        text-align: center;
+        transition: transform 0.3s, box-shadow 0.3s;
       }
 
       .card:hover {
         transform: scale(1.05);
-        box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.15);
-      }
-
-      .card h3 {
-        margin: 10px 0;
-      }
-
-      footer {
-        background-color: #222;
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+        background-color: #1e3a8a;
         color: white;
-        padding: 15px;
-        margin-top: 30px;
+      }
+
+      /* Footer */
+      footer {
+        background: #0f172a;
+        color: white;
+        padding: 20px;
+        margin-top: 50px;
       }
 
       footer a {
-        color: #00c6ff;
+        color: #facc15;
         text-decoration: none;
         margin: 0 10px;
         font-weight: bold;
@@ -138,14 +163,13 @@
         text-decoration: underline;
       }
 
+      /* Responsive Design */
       @media (max-width: 900px) {
         .container {
           flex-direction: column;
           align-items: center;
         }
-        .portfolio,
-        .achievements,
-        .qualifications {
+        .section {
           width: 80%;
           margin-bottom: 20px;
         }
@@ -164,8 +188,8 @@
   </head>
   <body>
     <header>
-      <h1>YOUR NAME</h1>
-      <p>Web Developer & Designer | Passionate about Coding & UI/UX</p>
+      <h1>Zulfiqar Alam</h1>
+      <p>App Developer | Passionate About Flutter & UI/UX</p>
       <nav>
         <a href="#">Home</a> | <a href="#">Projects</a> |
         <a href="#">Blogs</a> | <a href="#">Contact</a>
@@ -173,48 +197,35 @@
     </header>
 
     <main>
-      <h2>Web Developer and Designer</h2>
+      <h2>App Developer and UI/UX Designer</h2>
       <div class="container">
-        <section class="portfolio">
+        <section class="section">
           <h3>Portfolio Highlights</h3>
           <ul>
-            <li>Responsive HTML Layout</li>
-            <li>E-commerce Storefront</li>
-            <li>Interactive Form Design</li>
-            <li>Event Countdown Widget</li>
-            <li>Prototype</li>
-            <li>Landing Pages</li>
+            <li>Flutter To-Do App</li>
+            <li>Chat App with Firebase</li>
+            <li>Secure Photo Vault App</li>
+            <li>Cricket Score Counter App</li>
+            <li>Personal Notes & Diary App</li>
           </ul>
         </section>
 
-        <section class="achievements">
+        <section class="section">
           <h3>Career Achievements</h3>
-          <p>Frontend Developer [Intern] at XYZ</p>
-          <p>
-            Headed major product redesigns resulting in a 40% increase in user
-            engagement.
-          </p>
-          <a href="#">View My LinkedIn Profile</a>
-          <h3>Community Involvement</h3>
-          <p>Active participant in local and online developer forums.</p>
-          <p>
-            Regularly contribute to web development blogs and GitHub projects.
-          </p>
-          <a href="#">Visit My GitHub</a>
+          <p>Freelance Flutter Developer</p>
+          <p>Built multiple real-world apps with stunning UI/UX.</p>
+          <a href="https://www.linkedin.com/in/zulfiqar-alam-b27a84232/" class="button">View LinkedIn</a>
         </section>
 
-        <section class="qualifications">
+        <section class="section">
           <h3>Academic Qualifications</h3>
-          <p>B.Tech (Computer Science) from ABC University</p>
+          <p>B.Tech (Computer Science)</p>
           <h4>Specializations:</h4>
           <ul>
-            <li>Systems Analysis</li>
-            <li>Advanced JavaScript Techniques</li>
-            <li>Web Accessibility Standards</li>
-            <li>Performance Optimization in Web Applications</li>
-            <li>Cloud Computing Infrastructure</li>
-            <li>Security in Web Applications</li>
-            <li>Advanced Algorithms</li>
+            <li>Flutter & Dart</li>
+            <li>Firebase & Cloud</li>
+            <li>Mobile UI/UX Design</li>
+            <li>App Performance Optimization</li>
           </ul>
         </section>
       </div>
@@ -222,226 +233,30 @@
       <h2>Expertise</h2>
       <div class="expertise">
         <div class="card">
-          <h3>HTML Tutorials</h3>
-          <p>Learn HTML to create structured web pages with ease...</p>
+          <h3>Flutter Development</h3>
+          <p>Build powerful cross-platform apps.</p>
         </div>
         <div class="card">
-          <h3>CSS Tutorials</h3>
-          <p>Master CSS for stunning web designs and responsiveness...</p>
+          <h3>Firebase Integration</h3>
+          <p>Real-time authentication & databases.</p>
         </div>
         <div class="card">
-          <h3>PHP Tutorials</h3>
-          <p>Get hands-on with PHP for backend development...</p>
+          <h3>UI/UX Design</h3>
+          <p>Stunning and user-friendly interfaces.</p>
         </div>
         <div class="card">
-          <h3>JavaScript Tutorials</h3>
-          <p>Build interactive web apps with JavaScript...</p>
+          <h3>Security & Performance</h3>
+          <p>Optimizing apps for speed and safety.</p>
         </div>
       </div>
     </main>
 
     <footer>
-      <p>&copy; 2025 YOUR NAME | <a href="#">LinkedIn</a> | <a href="#">GitHub</a></p>
+      <p>
+        &copy; 2025 Zulfiqar Alam |
+        <a href="https://www.linkedin.com/in/zulfiqar-alam-b27a84232/">LinkedIn</a> |
+        <a href="https://github.com/ZulfiqarAlam18">GitHub</a>
+      </p>
     </footer>
   </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Web Developer Portfolio</title>
-    <style>
-      body {
-        font-family: Arial, sans-serif;
-        margin: 0;
-        padding: 0;
-        text-align: center;
-      }
-      header {
-        background-color: #333;
-        color: white;
-        padding: 20px;
-      }
-      nav a {
-        color: white;
-        text-decoration: none;
-        margin: 0 10px;
-      }
-      .container {
-        display: flex;
-        justify-content: space-around;
-        padding: 20px;
-      }
-      .portfolio,
-      .achievements,
-      .qualifications {
-        width: 30%;
-        text-align: left;
-      }
-      h2 {
-        margin-top: 20px;
-      }
-      .expertise {
-        display: flex;
-        justify-content: center;
-        gap: 20px;
-        padding: 20px;
-      }
-      .card {
-        width: 200px;
-        border: 1px solid #ccc;
-        padding: 10px;
-        border-radius: 5px;
-        box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
-      }
-    </style>
-  </head>
-  <body>
-    <header>
-      <h1>YOUR NAME</h1>
-      <nav>
-        <a href="#">Home</a> | <a href="#">Projects</a> |
-        <a href="#">Blogs</a> |
-        <a href="#">Contact</a>
-      </nav>
-    </header>
-
-    <main>
-      <h2>Web Developer and Designer</h2>
-      <div class="container">
-        <section class="portfolio">
-          <h3>Portfolio Highlights</h3>
-          <ul>
-            <li>Responsive HTML Layout</li>
-            <li>E-commerce Storefront</li>
-            <li>Interactive Form Design</li>
-            <li>Event Countdown Widget</li>
-            <li>Prototype</li>
-            <li>Landing Pages</li>
-          </ul>
-        </section>
-
-        <section class="achievements">
-          <h3>Career Achievements</h3>
-          <p>Frontend Developer [Intern] at XYZ</p>
-          <p>
-            Headed major product redesigns resulting in a 40% increase in user
-            engagement.
-          </p>
-          <a href="#">View My LinkedIn Profile</a>
-          <h3>Community Involvement</h3>
-          <p>Active participant in local and online developer forums.</p>
-          <p>
-            Regularly contribute to web development blogs and GitHub projects.
-          </p>
-          <a href="#">Visit My GitHub</a>
-        </section>
-
-        <section class="qualifications">
-          <h3>Academic Qualifications</h3>
-          <p>B.Tech (Computer Science) from ABC University</p>
-          <h4>Specializations:</h4>
-          <ul>
-            <li>Systems Analysis</li>
-            <li>Advanced JavaScript Techniques</li>
-            <li>Web Accessibility Standards</li>
-            <li>Performance Optimization in Web Applications</li>
-            <li>Cloud Computing Infrastructure</li>
-            <li>Security in Web Applications</li>
-            <li>Advanced Algorithms</li>
-          </ul>
-        </section>
-      </div>
-
-      <h2>Expertise</h2>
-      <div class="expertise">
-        <div class="card">
-          <h3>HTML Tutorials</h3>
-          <p>
-            HTML stands for HyperText Markup Language. It is used to design web
-            pages using markup...
-          </p>
-        </div>
-        <div class="card">
-          <h3>CSS Tutorials</h3>
-          <p>
-            Cascading Style Sheets, fondly referred to as CSS, is a simply
-            designed language intended to...
-          </p>
-        </div>
-        <div class="card">
-          <h3>PHP Tutorials</h3>
-          <p>
-            The term PHP is an acronym for PHP: Hypertext Preprocessor. PHP is a
-            server-side...
-          </p>
-        </div>
-        <div class="card">
-          <h3>JavaScript Tutorials</h3>
-          <p>
-            JavaScript was developed by Brendan Eich in 1995. At first, it was
-            called LiveScript but was later...
-          </p>
-        </div>
-      </div>
-    </main>
-  </body>
-</html> -->
