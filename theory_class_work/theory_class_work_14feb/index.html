@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Web Developer Portfolio</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        text-align: center;
+        background-color: #f9f9f9;
+      }
+
+      header {
+        background-color: #222;
+        color: white;
+        padding: 20px;
+      }
+
+      header h1 {
+        margin: 0;
+        font-size: 28px;
+      }
+
+      header p {
+        margin: 5px 0 10px;
+        font-size: 16px;
+        font-style: italic;
+        color: #ddd;
+      }
+
+      nav a {
+        color: white;
+        text-decoration: none;
+        margin: 0 15px;
+        font-size: 16px;
+        font-weight: bold;
+        transition: color 0.3s ease;
+      }
+
+      nav a:hover {
+        color: #00c6ff;
+      }
+
+      main {
+        padding: 30px 15px;
+      }
+
+      h2 {
+        margin-top: 20px;
+        font-size: 26px;
+        color: #222;
+      }
+
+      .container {
+        display: flex;
+        justify-content: space-around;
+        padding: 20px;
+        flex-wrap: wrap;
+      }
+
+      .portfolio,
+      .achievements,
+      .qualifications {
+        width: 30%;
+        text-align: left;
+        background: white;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease-in-out;
+      }
+
+      .portfolio:hover,
+      .achievements:hover,
+      .qualifications:hover {
+        transform: translateY(-5px);
+      }
+
+      h3 {
+        font-size: 20px;
+        color: #00c6ff;
+      }
+
+      ul {
+        padding: 0;
+        list-style: none;
+      }
+
+      ul li {
+        padding: 5px 0;
+      }
+
+      .expertise {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        flex-wrap: wrap;
+        padding: 20px;
+      }
+
+      .card {
+        width: 220px;
+        border: 1px solid #ccc;
+        padding: 15px;
+        border-radius: 8px;
+        box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+        background-color: white;
+      }
+
+      .card:hover {
+        transform: scale(1.05);
+        box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.15);
+      }
+
+      .card h3 {
+        margin: 10px 0;
+      }
+
+      footer {
+        background-color: #222;
+        color: white;
+        padding: 15px;
+        margin-top: 30px;
+      }
+
+      footer a {
+        color: #00c6ff;
+        text-decoration: none;
+        margin: 0 10px;
+        font-weight: bold;
+      }
+
+      footer a:hover {
+        text-decoration: underline;
+      }
+
+      @media (max-width: 900px) {
+        .container {
+          flex-direction: column;
+          align-items: center;
+        }
+        .portfolio,
+        .achievements,
+        .qualifications {
+          width: 80%;
+          margin-bottom: 20px;
+        }
+      }
+
+      @media (max-width: 600px) {
+        nav a {
+          display: block;
+          margin: 10px 0;
+        }
+        .card {
+          width: 90%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>YOUR NAME</h1>
+      <p>Web Developer & Designer | Passionate about Coding & UI/UX</p>
+      <nav>
+        <a href="#">Home</a> | <a href="#">Projects</a> |
+        <a href="#">Blogs</a> | <a href="#">Contact</a>
+      </nav>
+    </header>
+
+    <main>
+      <h2>Web Developer and Designer</h2>
+      <div class="container">
+        <section class="portfolio">
+          <h3>Portfolio Highlights</h3>
+          <ul>
+            <li>Responsive HTML Layout</li>
+            <li>E-commerce Storefront</li>
+            <li>Interactive Form Design</li>
+            <li>Event Countdown Widget</li>
+            <li>Prototype</li>
+            <li>Landing Pages</li>
+          </ul>
+        </section>
+
+        <section class="achievements">
+          <h3>Career Achievements</h3>
+          <p>Frontend Developer [Intern] at XYZ</p>
+          <p>
+            Headed major product redesigns resulting in a 40% increase in user
+            engagement.
+          </p>
+          <a href="#">View My LinkedIn Profile</a>
+          <h3>Community Involvement</h3>
+          <p>Active participant in local and online developer forums.</p>
+          <p>
+            Regularly contribute to web development blogs and GitHub projects.
+          </p>
+          <a href="#">Visit My GitHub</a>
+        </section>
+
+        <section class="qualifications">
+          <h3>Academic Qualifications</h3>
+          <p>B.Tech (Computer Science) from ABC University</p>
+          <h4>Specializations:</h4>
+          <ul>
+            <li>Systems Analysis</li>
+            <li>Advanced JavaScript Techniques</li>
+            <li>Web Accessibility Standards</li>
+            <li>Performance Optimization in Web Applications</li>
+            <li>Cloud Computing Infrastructure</li>
+            <li>Security in Web Applications</li>
+            <li>Advanced Algorithms</li>
+          </ul>
+        </section>
+      </div>
+
+      <h2>Expertise</h2>
+      <div class="expertise">
+        <div class="card">
+          <h3>HTML Tutorials</h3>
+          <p>Learn HTML to create structured web pages with ease...</p>
+        </div>
+        <div class="card">
+          <h3>CSS Tutorials</h3>
+          <p>Master CSS for stunning web designs and responsiveness...</p>
+        </div>
+        <div class="card">
+          <h3>PHP Tutorials</h3>
+          <p>Get hands-on with PHP for backend development...</p>
+        </div>
+        <div class="card">
+          <h3>JavaScript Tutorials</h3>
+          <p>Build interactive web apps with JavaScript...</p>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <p>&copy; 2025 YOUR NAME | <a href="#">LinkedIn</a> | <a href="#">GitHub</a></p>
+    </footer>
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Web Developer Portfolio</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        text-align: center;
+      }
+      header {
+        background-color: #333;
+        color: white;
+        padding: 20px;
+      }
+      nav a {
+        color: white;
+        text-decoration: none;
+        margin: 0 10px;
+      }
+      .container {
+        display: flex;
+        justify-content: space-around;
+        padding: 20px;
+      }
+      .portfolio,
+      .achievements,
+      .qualifications {
+        width: 30%;
+        text-align: left;
+      }
+      h2 {
+        margin-top: 20px;
+      }
+      .expertise {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        padding: 20px;
+      }
+      .card {
+        width: 200px;
+        border: 1px solid #ccc;
+        padding: 10px;
+        border-radius: 5px;
+        box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>YOUR NAME</h1>
+      <nav>
+        <a href="#">Home</a> | <a href="#">Projects</a> |
+        <a href="#">Blogs</a> |
+        <a href="#">Contact</a>
+      </nav>
+    </header>
+
+    <main>
+      <h2>Web Developer and Designer</h2>
+      <div class="container">
+        <section class="portfolio">
+          <h3>Portfolio Highlights</h3>
+          <ul>
+            <li>Responsive HTML Layout</li>
+            <li>E-commerce Storefront</li>
+            <li>Interactive Form Design</li>
+            <li>Event Countdown Widget</li>
+            <li>Prototype</li>
+            <li>Landing Pages</li>
+          </ul>
+        </section>
+
+        <section class="achievements">
+          <h3>Career Achievements</h3>
+          <p>Frontend Developer [Intern] at XYZ</p>
+          <p>
+            Headed major product redesigns resulting in a 40% increase in user
+            engagement.
+          </p>
+          <a href="#">View My LinkedIn Profile</a>
+          <h3>Community Involvement</h3>
+          <p>Active participant in local and online developer forums.</p>
+          <p>
+            Regularly contribute to web development blogs and GitHub projects.
+          </p>
+          <a href="#">Visit My GitHub</a>
+        </section>
+
+        <section class="qualifications">
+          <h3>Academic Qualifications</h3>
+          <p>B.Tech (Computer Science) from ABC University</p>
+          <h4>Specializations:</h4>
+          <ul>
+            <li>Systems Analysis</li>
+            <li>Advanced JavaScript Techniques</li>
+            <li>Web Accessibility Standards</li>
+            <li>Performance Optimization in Web Applications</li>
+            <li>Cloud Computing Infrastructure</li>
+            <li>Security in Web Applications</li>
+            <li>Advanced Algorithms</li>
+          </ul>
+        </section>
+      </div>
+
+      <h2>Expertise</h2>
+      <div class="expertise">
+        <div class="card">
+          <h3>HTML Tutorials</h3>
+          <p>
+            HTML stands for HyperText Markup Language. It is used to design web
+            pages using markup...
+          </p>
+        </div>
+        <div class="card">
+          <h3>CSS Tutorials</h3>
+          <p>
+            Cascading Style Sheets, fondly referred to as CSS, is a simply
+            designed language intended to...
+          </p>
+        </div>
+        <div class="card">
+          <h3>PHP Tutorials</h3>
+          <p>
+            The term PHP is an acronym for PHP: Hypertext Preprocessor. PHP is a
+            server-side...
+          </p>
+        </div>
+        <div class="card">
+          <h3>JavaScript Tutorials</h3>
+          <p>
+            JavaScript was developed by Brendan Eich in 1995. At first, it was
+            called LiveScript but was later...
+          </p>
+        </div>
+      </div>
+    </main>
+  </body>
+</html> -->
