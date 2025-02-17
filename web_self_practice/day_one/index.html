@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My First Site</title>
 </head>
+
 <body>
     <h1>Essentail Tags</h1>
     <p>.......................................................................</p>
@@ -17,20 +19,12 @@
 
     <a href="https://chatgpt.com/c/67b30135-efac-8001-8a88-72d26f7f0f7c">chat gpt</a>
 
-    <img 
-    width="200"
-    height="200"
-    
-    
-    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQbJdmE0MLUxptnK6FKSAPmON9xEia96MGGqIL-UyQPF5hn-rXmam-5cSgNWfLqHUXHVrkrymfm_l0Wmdt24Ak1g" alt="">
-    
+    <img width="200" height="200"
+        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQbJdmE0MLUxptnK6FKSAPmON9xEia96MGGqIL-UyQPF5hn-rXmam-5cSgNWfLqHUXHVrkrymfm_l0Wmdt24Ak1g"
+        alt="">
 
-    <img 
-    width="200"
-    height="200"
-    
 
-    src="parrot.jpg" alt="">
+    <img width="200" height="200" src="parrot.jpg" alt="">
     <br>
 
 
@@ -60,6 +54,23 @@
     </ol>
 
 
+    <h2>Description List Example</h2>
+    <dl>
+        <dt>HTML</dt>
+        <dd>HyperText Markup Language</dd>
+
+        <dt>CSS</dt>
+        <dd>Cascading Style Sheets</dd>
+        <dt>JavaScript</dt>
+        <dd>Programming language for the web</dd>
+        <dt>React</dt>
+        <dd>Front End FramWork</dd>
+        <dt>Nodejs</dt>
+        <dd>Non linear Database management system</dd>
+    </dl>
+
+
+
     <h1>Session 3 => Text Formating</h1>
     <p>..................................................</p>
 
@@ -86,10 +97,160 @@
 
     <p>H<sub>2</sub>O => sub tag </p>
     <p>2<sup>x</sup> => sup tag </p>
-    
-    <p><blockquote>Here we go</blockquote></p>
+
+    <p>
+    <blockquote>Here we go</blockquote>
+    </p>
+
+
+
+    <p>
+        <abbr title="World Health Organization">WHO</abbr> is a <dfn>global organization</dfn> that provides <abbr
+            title="health services">healthcare</abbr> to all <abbr title="populations">people</abbr> on Earth.
+    </p>
+
+    <p>One of my favorite quotes:</p>
+    <blockquote>
+        "The only way to do great work is to love what you do." – Steve Jobs
+    </blockquote>
+
+
+
+
+    <h1>Session 4 => Tables </h1>
+    <p>.................................................</p>
+    <table border="10">
+        <tr style="color: white; background-color: black;">
+            <th>Name</th>
+            <th>Caste</th>
+            <th>Age</th>
+
+        </tr>
+        <tr>
+            <td>Zulfiqar</td>
+            <td>Jamali</td>
+            <td>22</td>
+        </tr>
+        <tr>
+            <td>Amir</td>
+            <td>Sargani</td>
+            <td>25</td>
+
+
+        </tr>
+
+
+
+
+
+
+
+    </table>
+
+    <h4>table with colspan and rowspan</h4>
+    <h2>Table with Colspan and Rowspan</h2>
+    <table border="1">
+        <tr>
+            <th colspan="2">Name & Age</th>
+            <th>Country</th>
+        </tr>
+        <tr>
+            <td>Zulfiqar</td>
+            <td>25</td>
+            <td rowspan="3">Pakistan</td>
+        </tr>
+        <tr>
+            <td>Ali</td>
+            <td>23</td>
+        </tr>
+        <tr>
+            <td>Ali</td>
+            <td>23</td>
+        </tr>
+    </table>
+
+
+
+    <h1> Session 5 => Forms</h1>
+
+    <form action="">
+        <label for="name">Full Name</label>
+        <input type="text" name="name" id="name">
+        <br>
+        <label for="password">Password</label>
+        <input type="password" name="password" id="password">
+        <br>
+        <label for="final_words">Final thoughts</label>
+        <textarea name="final_words" id="final_words" cols="30" rows="10">Share your Thoughts here </textarea>
+        <br>
+        <input type="button" value="Submit Form">
+
+
+
+    </form>
+
+
+
+    <P>............................................................</P>
+    <p>radio buttons , check buttons , drop down , submit and reset buttons inside forms</p>
+    <form action="">
+
+
+        <label for="name">Full Name</label>
+        <input type="text" name="name" id="name">
+        <br>
+
+        <label for="age">Age</label>
+        <input type="age" name="age" id="age">
+        <br>
+
+        <p>Choose your gender</p>
+        <input type="radio" name="gender" id="male" value="male">
+        <label for="male">male</label>
+        <input type="radio" name="gender" id="female" value="male">
+        <label for="female">female </label>
+
+        <p>Favourite Animals</p>
+        <input type="checkbox" name="animal" id="animal" value="animal">
+        <label for="animal">Dog</label>
+        <input type="checkbox" name="animal" id="animal" value="animal">
+        <label for="animal">Cat</label>
+        <input type="checkbox" name="animal" id="animal" value="animal">
+        <label for="animal">Horse</label> <br>
+
+
+        <label for="year">Year of study</label>
+        <select name="year" id="year">
+
+            <option value="first">First Year</option>
+            <option value="second">Second Year</option>
+            <option value="third">Third Year</option>
+            <option value="final">Final Year</option>
+
+        </select>
+
+
+        <br>
+        <label for="password">Password</label>
+        <input type="password" name="password" id="password">
+
+        <input type="submit" value="submit ">
+        <br><br>
+        <input type="reset" value="reset">
+        input
+
+
+
+
+
+
+
+    </form>
+
+
 
 
 
 </body>
+
 </html>
