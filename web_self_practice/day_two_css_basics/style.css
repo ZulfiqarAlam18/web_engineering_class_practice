@@ -1,16 +1,41 @@
-#external {
-
-background-color: purple;
-
-color: white;
-
-}
-
 body {
+    background-color: #f0f0f0;
+color: white;
+    font-family: Arial, sans-serif;
+}
 
+h1 {
     color: white;
+    text-align: center;
+}
+
+p {
+    color: gray;
+    font-size: 18px;
+}
+
+button {
+    background-color: black;
+    color: white;
+    padding: 100px 200px;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: teal;
+}
 
 
+.div_elevation {
+
+width: 200px;
+height: 100px;
+background-color: white;
+padding: 20px;
+box-shadow: 8px 8px 20px rgba(0, 0, 0, 0.3);
+border-radius: 8px;
 
 
 }
+
