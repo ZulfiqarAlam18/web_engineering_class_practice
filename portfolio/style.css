@@ -1,120 +1,143 @@
-/* Reset some default styles */
+/* General Styles */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-  }
-  
-  /* Global Styles */
-  body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f4f4f4;
+    font-family: 'Poppins', sans-serif;
+    transition: 0.3s ease-in-out;
+}
+
+body {
+    background: #f0f0f5;
     color: #333;
-    line-height: 1.6;
-  }
-  
-  a {
-    text-decoration: none;
-    color: inherit;
-  }
-  
-  ul {
-    list-style-type: none;
-  }
-  
-  /* Header and Navigation */
-  header {
-    background-color: #0072ff;
-    color: #fff;
-    padding: 10px 0;
-  }
-  
-  nav ul {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-  }
-  
-  nav a {
+}
+
+.dark-mode {
+    background: #121212;
     color: white;
-    font-size: 18px;
-    padding: 8px 16px;
-    border-radius: 5px;
-    transition: background-color 0.3s;
-  }
-  
-  nav a:hover {
-    background-color: #0056b3;
-  }
-  
-  /* Section Styles */
-  .section {
-    padding: 40px 0;
-  }
-  
-  .container {
+}
+
+/* Navbar */
+header {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    position: fixed;
+    width: 100%;
+    padding: 15px 0;
+    top: 0;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     width: 80%;
-    margin: 0 auto;
-    text-align: center;
-  }
-  
-  h2 {
-    font-size: 2rem;
-    margin-bottom: 20px;
-  }
-  
-  p {
-    font-size: 1.1rem;
-    margin-bottom: 20px;
-  }
-  
-  img {
-    max-width: 200px;
-    border-radius: 50%;
-    margin-top: 20px;
-  }
-  
-  /* Projects Section */
-  .projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 20px;
-  }
-  
-  .project-card {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
-  }
-  
-  .project-card img {
-    width: 100%;
-    border-radius: 8px;
-  }
-  
-  .project-card h3 {
-    margin-top: 10px;
-    font-size: 1.4rem;
-  }
-  
-  .project-card p {
-    margin: 10px 0;
-  }
-  
-  .project-card a {
-    color: #0072ff;
+    margin: auto;
+}
+
+.logo {
+    font-size: 22px;
     font-weight: bold;
-  }
-  
-  /* Footer Styles */
-  footer {
-    background-color: #0072ff;
-    color: #fff;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin: 0 15px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    font-size: 18px;
+}
+
+#theme-toggle {
+    border: none;
+    background: transparent;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+/* Hero Section */
+#hero {
+    height: 100vh;
+    background: linear-gradient(to right, #0072ff, #00c6ff);
+    color: white;
     text-align: center;
-    padding: 10px;
-    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-content h1 {
+    font-size: 40px;
+}
+
+.hero-content span {
+    color: #ffea00;
+}
+
+.hero-content p {
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+.btn {
+    margin-top: 20px;
+    padding: 12px 25px;
+    background: white;
+    color: #0072ff;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: #ffea00;
+    color: #333;
+}
+
+/* Projects */
+.project-grid {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+.project-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+    padding: 15px;
+    width: 300px;
+    text-align: center;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+.project-card:hover {
+    transform: scale(1.05);
+}
+
+.project-card img {
     width: 100%;
-    bottom: 0;
-  }
-  
+    border-radius: 10px;
+}
+
+.project-card h3 {
+    margin: 10px 0;
+    font-size: 20px;
+}
+
+/* Footer */
+footer {
+    background: #0072ff;
+    color: white;
+    text-align: center;
+    padding: 15px;
+}

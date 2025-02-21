@@ -1,71 +1,194 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Zulfiqar's Portfolio</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | Zulfiqar Alam</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        body {
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        header {
+            background-color: #1a1a1a;
+            color: white;
+            padding: 20px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .logo {
+            font-size: 28px;
+            font-weight: 600;
+        }
+        .nav-links {
+            list-style: none;
+            display: flex;
+        }
+        .nav-links li {
+            margin: 0 15px;
+        }
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 500;
+            transition: color 0.3s ease-in-out;
+        }
+        .nav-links a:hover {
+            color: #f39c12;
+        }
+        #hero {
+            height: 90vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(to right, #333, #1a1a1a);
+            color: white;
+            padding: 50px;
+        }
+        #hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+        }
+        #hero span {
+            color: #f39c12;
+        }
+        section {
+            padding: 80px 50px;
+            text-align: center;
+        }
+        #about {
+            background: white;
+            padding: 80px 50px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+        #about h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+        #about p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #555;
+        }
+        .skills {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .skill-item {
+            background: #444;
+            color: white;
+            padding: 10px 20px;
+            margin: 5px;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: 0.3s;
+        }
+        .skill-item:hover {
+            background: #f39c12;
+        }
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        .project-card {
+            background: white;
+            padding: 30px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            cursor: pointer;
+        }
+        .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+            background: #f8f9fa;
+        }
+        footer {
+            background: #1a1a1a;
+            color: white;
+            text-align: center;
+            padding: 30px;
+            font-size: 14px;
+        }
+        .contact-links a {
+            display: inline-block;
+            margin: 10px;
+            text-decoration: none;
+            color: #f39c12;
+            font-size: 18px;
+            font-weight: 500;
+            transition: color 0.3s ease-in-out;
+        }
+        .contact-links a:hover {
+            color: #d35400;
+        }
+    </style>
 </head>
 <body>
-  <!-- Navigation -->
-  <header>
-    <nav>
-      <ul>
-        <li><a href="#about">About</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
-
-  <!-- About Section -->
-  <section id="about" class="section">
-    <div class="container">
-      <h2>About Me</h2>
-      <p>Hi, I'm Zulfiqar Alam, a passionate Flutter developer. I build awesome apps!</p>
-      <img src="your-photo.jpg" alt="Zulfiqar Alam">
-    </div>
-  </section>
-
-  <!-- Projects Section -->
-  <section id="projects" class="section">
-    <div class="container">
-      <h2>My Projects</h2>
-      <div class="projects-grid">
-        <div class="project-card">
-          <img src="project1.jpg" alt="Project 1">
-          <h3>Project One</h3>
-          <p>A brief description of this project.</p>
-          <a href="#">View Project</a>
+    <header>
+        <div class="logo">Zulfiqar Alam</div>
+        <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </header>
+    
+    <section id="about">
+        <h2>About Me</h2>
+        <p>I am a passionate Flutter developer with expertise in databases, state management, and advanced features like OpenCV. I love building high-performance apps with a focus on security and scalability.</p>
+        <div class="skills">
+            <span class="skill-item">Flutter</span>
+            <span class="skill-item">MongoDB</span>
+            <span class="skill-item">SQL</span>
+            <span class="skill-item">Firebase</span>
+            <span class="skill-item">Supabase</span>
+            <span class="skill-item">Advanced State Management</span>
+            <span class="skill-item">OpenCV</span>
         </div>
-        <div class="project-card">
-          <img src="project2.jpg" alt="Project 2">
-          <h3>Project Two</h3>
-          <p>A brief description of this project.</p>
-          <a href="#">View Project</a>
+    </section>
+
+    <section id="projects">
+        <h2>Projects</h2>
+        <div class="project-grid">
+            <div class="project-card">One-to-One Chat App</div>
+            <div class="project-card">Secure Photo Keeper</div>
+            <div class="project-card">Instagram Clone</div>
+            <div class="project-card">Easypaisa Clone</div>
+            <div class="project-card">Locate Lost - Reuniting Children</div>
         </div>
-        <!-- Add more projects as needed -->
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Contact Section -->
-  <section id="contact" class="section">
-    <div class="container">
-      <h2>Contact</h2>
-      <p>You can reach me at:</p>
-      <ul>
-        <li>Email: zulfiqaralam651@gmail.com</li>
-        <li>Phone: 03149807774</li>
-        <!-- Add social links if needed -->
-      </ul>
-    </div>
-  </section>
+    <section id="contact">
+        <h2>Contact Me</h2>
+        <div class="contact-links">
+            <a href="https://www.linkedin.com/in/zulfiqar-alam-b27a84232">LinkedIn</a>
+            <a href="https://github.com/ZulfiqarAlam18">GitHub</a>
+        </div>
+        <div class="contact-details">
+            <p>Email: <a href="mailto:zulfiqaralam651@gmail.com">zulfiqaralam651@gmail.com</a></p>
+            <p>Phone: <a href="tel:+923149807774">03149807774</a></p>
+        </div>
+    </section>
 
-  <!-- Footer -->
-  <footer>
-    <p>&copy; 2025 Zulfiqar Alam | All Rights Reserved</p>
-  </footer>
+    <footer>
+        <p>&copy; 2024 Zulfiqar Alam. All rights reserved.</p>
+    </footer>
 </body>
 </html>
