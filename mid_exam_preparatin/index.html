@@ -78,21 +78,24 @@
     <p>Evolution of Web:
     <dl>
         <dt>Web 1.0 aka Early Web(1990 to 2000) :</dt>
-        <dd> <ul>
+        <dd>
+            <ul>
                 <li>Key Technologies <ul title="Key Technologies">
 
-                    <li>Html</li>
-                    <li>Http</li>
-                    <li>Browsers</li>
+                        <li>Html</li>
+                        <li>Http</li>
+                        <li>Browsers</li>
 
-                </ul></li>
+                    </ul>
+                </li>
                 <li>Characteristics <ol type="A">
 
-                    <li>Html</li>
-                    <li>Http</li>
-                    <li>Browsers</li>
+                        <li>Html</li>
+                        <li>Http</li>
+                        <li>Browsers</li>
 
-                </ol></li>
+                    </ol>
+                </li>
 
         </dd>
 
@@ -101,38 +104,134 @@
     </p>
 
     <h1>--------------------------------Tables------------------------------------</h1>
-    <table border="1">
-        <tr>
-            <th>Name</th>
-            <th>Age</th>
-        </tr>
-        <tr>
-            <td>John</td>
-            <td>25</td>
-        </tr>
-        <tr>
-            <td>Alice</td>
-            <td>30</td>
-        </tr>
-        <tr>
-            <td>Bob</td>
-            <td>35</td>
-        </tr>
-    </table>
+    <div>
+        <table border="1" align=center cellPadding="15" cellspacing="10">
+            <tr>
+                <th>Name</th>
+                <th>Roll NO</th>
+                <th>Age</th>
+                <th>Department</th>
+                <th>Year of study</th>
+
+            </tr>
+            <tr>
+                <td>Zulfiqar</td>
+                <td>21sw018</td>
+                <td>22</td>
+                <td rowspan="3">software</td>
+                <td rowspan="5">Final year</td>
+
+            </tr>
+            <tr>
+                <td>Muzafar</td>
+                <td>21sw055</td>
+                <td rowspan="3">22</td>
+
+            </tr>
+            <tr>
+                <td>Ali</td>
+                <td>21sw080</td>
+
+
+
+            </tr>
+            <tr>
+                <td>Dodo</td>
+                <td>21el080</td>
+
+                <td rowspan="2">Electrical</td>
+
+            </tr>
+            <tr>
+                <td>Mumtaz</td>
+                <td>21el085</td>
+                <td>24</td>
+
+
+            </tr>
+
+
+
+
+        </table>
+        <p>-----------------------------------------------------</p>
+        <table border="10">
+            <tr>
+                <th></th>
+                <th>Red</th>
+                <th>Green</th>
+                <th>Blue</th>
+
+
+             </tr>
+             <tr>
+                <td>white</td>
+                <td colspan="3">255</td>
+               
+             </tr>
+             <tr>
+                <td>black</td>
+                <td colspan="3">0</td>
+               
+             </tr>
+             <tr>
+                <td>Cyan</td>
+                <td>1</td>
+                <td>0</td>
+                <td>1</td>
+             </tr>
+             <tr>
+                <td>Megenta</td>
+                <td colspan="2">1</td>
+                <td>0</td>
+             </tr>
+
+
+
+
+        </table>
+    </div>
+
+
+
     <h1>--------------------------------Links------------------------------------</h1>
     <a href="https://github.com/ZulfiqarAlam18">My Github</a> <br>
-    <a href="about.html">About Page</a>
+    <a href="about.html">About Page</a> <br>
+    <a href="about.html" target="_blank">About Page (opens in next tab) </a>
     <br>
-    <a href=""><img src="" alt=""></a>
+    <a href="https://www.cricbuzz.com/" target="_blank"><img height="200" width="200" src="images/Bald Eagle RoMW.webp"
+            alt=""></a>
     <br>
+    <a href="#footer">Visiting footer of same page</a> <br>
+    <a href="about.html#footer" target="_blank" title="Eagle">Visiting footer of another page</a>
+
+
+<p>-----------------------------------------</p>
+    <p>Some more about anchor tags</p>
+    <p>Relatvie and absoute url/links => relative (about.html) , absolute (https : ..._):</p> <br>
+   
+    <p>Same folder =>  <a href="about.html">about </a></p>
+    <p>screens/about.html folder =>  <a href="screen/about.html">about </a></p>
+    <p> movies/screens/about.html =>  <a href="movies/screens/about.html">about </a></p>
+    <p>../index.html =>  <a href="../about.html">about </a></p>
+    <p> ../../index.html =>  <a href="about.html">about </a></p>
+
+    <p>----------------------------------------------</p>
+    <p>Email Tag:<a href="mailto:zulfiqaralam651@gmail.com">Zulfiqar Alam</a></p>
+
 
 
     <h1>--------------------------------Images------------------------------------</h1>
+    <img height="200" width="200" src="images/Bald Eagle RoMW.webp" alt="Eagle">
     <h1>--------------------------------Forms------------------------------------</h1>
     <h1>--------------------------------Basics------------------------------------</h1>
     <h1>--------------------------------Basics------------------------------------</h1>
 
+    <div id="footer" style="background-color: black; color: white; flex: content; display: flex;">
 
+        <footer>All rights reserved</footer>
+
+    </div>
 
 </body>
 
