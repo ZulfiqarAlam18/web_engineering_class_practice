@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Your Name</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        body {
+            background: #f4f4f4;
+            color: #333;
+        }
+        header {
+            background: teal;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            padding: 10px;
+            background: #026666;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            padding: 20px;
+        }
+        .hero {
+            text-align: center;
+            padding: 50px;
+            background: teal;
+            color: white;
+            border-radius: 10px;
+        }
+        .hero h1 {
+            margin-bottom: 10px;
+        }
+        .section {
+            padding: 40px 0;
+        }
+        .card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .project {
+            padding: 15px;
+            background: white;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .contact-form button {
+            background: teal;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+        footer {
+            background: #026666;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Your Name</h1>
+        <p>Web Developer | Designer | Freelancer</p>
+    </header>
+
+    <nav>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <div class="container">
+        <section class="hero">
+            <h1>Welcome to My Portfolio</h1>
+            <p>Showcasing my work and skills.</p>
+        </section>
+
+        <section id="about" class="section">
+            <div class="card">
+                <h2>About Me</h2>
+                <p>I am a passionate web developer with expertise in HTML, CSS, JavaScript, and modern frameworks like React and Flutter.</p>
+            </div>
+        </section>
+
+        <section id="projects" class="section">
+            <h2>Projects</h2>
+            <div class="projects">
+                <div class="project">
+                    <h3>Project 1</h3>
+                    <p>Portfolio website built with HTML, CSS, and JavaScript.</p>
+                </div>
+                <div class="project">
+                    <h3>Project 2</h3>
+                    <p>To-Do App using Flutter and SQLite.</p>
+                </div>
+                <div class="project">
+                    <h3>Project 3</h3>
+                    <p>Secure Photo Vault for private image storage.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="section">
+            <div class="card">
+                <h2>Contact Me</h2>
+                <form class="contact-form">
+                    <input type="text" id="name" placeholder="Your Name" required>
+                    <input type="email" id="email" placeholder="Your Email" required>
+                    <textarea id="message" rows="5" placeholder="Your Message" required></textarea>
+                    <button type="button" onclick="sendMessage()">Send Message</button>
+                </form>
+                <p id="msg-status" style="color:green; margin-top:10px;"></p>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>© 2024 Your Name. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        function sendMessage() {
+            let name = document.getElementById("name").value;
+            let email = document.getElementById("email").value;
+            let message = document.getElementById("message").value;
+            if (name && email && message) {
+                document.getElementById("msg-status").innerText = "Message sent successfully!";
+            } else {
+                document.getElementById("msg-status").innerText = "Please fill out all fields.";
+            }
+        }
+    </script>
+
+</body>
+</html>
