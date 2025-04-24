@@ -3,29 +3,75 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lab Task</title>
+    <title>AJAX Form Submission</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 20px;
-            line-height: 1.6;
-        }
-        h1 {
-            color: #333;
-        }
+        body { font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; }
+        #message { margin-top: 20px; padding: 10px; display: none; }
+        .success { background-color: #dff0d8; color: #3c763d; }
+        .error { background-color: #f2dede; color: #a94442; }
     </style>
 </head>
 <body>
-    <h1>Lab Task</h1>
-    <p>This is a template for the lab task.</p>
+    <h1>Add New Record</h1>
     
-    <div id="content">
-        <!-- Task content goes here -->
-    </div>
-
+    <form id="recordForm">
+        <div>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+        </div>
+        
+        <div>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+        
+        <div>
+            <label for="phone">Phone:</label>
+            <input type="tel" id="phone" name="phone">
+        </div>
+        
+        <button type="submit">Submit</button>
+    </form>
+    
+    <div id="message"></div>
+    
     <script>
-        // JavaScript code can be added here
+        document.getElementById('recordForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(this);
+            
+            fetch('save_record.php', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                const messageDiv = document.getElementById('message');
+                messageDiv.style.display = 'block';
+                
+                if (data.success) {
+                    messageDiv.className = 'success';
+                    messageDiv.textContent = data.message;
+                    document.getElementById('recordForm').reset();
+                } else {
+                    messageDiv.className = 'error';
+                    messageDiv.textContent = data.message;
+                }
+                
+                // Hide message after 5 seconds
+                setTimeout(() => {
+                    messageDiv.style.display = 'none';
+                }, 5000);
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                const messageDiv = document.getElementById('message');
+                messageDiv.style.display = 'block';
+                messageDiv.className = 'error';
+                messageDiv.textContent = 'An error occurred while saving the record.';
+            });
+        });
     </script>
 </body>
 </html>

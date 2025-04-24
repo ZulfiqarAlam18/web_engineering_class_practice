@@ -3,29 +3,83 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lab Task</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 20px;
-            line-height: 1.6;
-        }
-        h1 {
-            color: #333;
-        }
-    </style>
+    <title>PHP Basics</title>
 </head>
 <body>
-    <h1>Lab Task</h1>
-    <p>This is a template for the lab task.</p>
+    <h1>PHP Basic Operations</h1>
     
-    <div id="content">
-        <!-- Task content goes here -->
-    </div>
-
-    <script>
-        // JavaScript code can be added here
-    </script>
+    <?php
+    // 1. Get PHP version
+    echo "<p>PHP Version: " . phpversion() . "</p>";
+    
+    // 2. Swap two variables
+    $a = 5;
+    $b = 10;
+    echo "<p>Before swap: a = $a, b = $b</p>";
+    $temp = $a;
+    $a = $b;
+    $b = $temp;
+    echo "<p>After swap: a = $a, b = $b</p>";
+    
+    // 3. Redirect user (commented out to prevent actual redirection)
+    // header("Location: https://www.example.com");
+    // exit;
+    
+    // 4. Display strings
+    $name = "John Doe";
+    $age = 30;
+    echo "<p>Name: $name, Age: $age</p>";
+    
+    // 5. Ternary operator
+    $isAdult = ($age >= 18) ? "Yes" : "No";
+    echo "<p>Is $name an adult? $isAdult</p>";
+    
+    // 6. URL components extraction
+    $url = "https://www.example.com/path/to/page?param1=value1&param2=value2";
+    $components = parse_url($url);
+    echo "<h3>URL Components:</h3>";
+    echo "<pre>";
+    print_r($components);
+    echo "</pre>";
+    ?>
+    
+    <!-- Embedding PHP variables in HTML -->
+    <?php
+    $pageTitle = "PHP Basics Page";
+    $heading = "Welcome to PHP Basics";
+    $linkText = "Visit Example.com";
+    $linkUrl = "https://www.example.com";
+    ?>
+    
+    <title><?php echo $pageTitle; ?></title>
+    <h3><?php echo $heading; ?></h3>
+    <p>Click <a href="<?php echo $linkUrl; ?>"><?php echo $linkText; ?></a> to visit an example website.</p>
+    
+    <!-- Display data in a table -->
+    <h3>Employee Data</h3>
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Department</th>
+            <th>Salary</th>
+        </tr>
+        <?php
+        $employees = [
+            ['id' => 1, 'name' => 'Alice', 'department' => 'HR', 'salary' => 5000],
+            ['id' => 2, 'name' => 'Bob', 'department' => 'IT', 'salary' => 6000],
+            ['id' => 3, 'name' => 'Charlie', 'department' => 'Finance', 'salary' => 5500]
+        ];
+        
+        foreach ($employees as $employee) {
+            echo "<tr>";
+            echo "<td>" . $employee['id'] . "</td>";
+            echo "<td>" . $employee['name'] . "</td>";
+            echo "<td>" . $employee['department'] . "</td>";
+            echo "<td>$" . $employee['salary'] . "</td>";
+            echo "</tr>";
+        }
+        ?>
+    </table>
 </body>
 </html>

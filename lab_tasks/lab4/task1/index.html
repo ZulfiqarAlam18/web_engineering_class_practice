@@ -3,29 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lab Task</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 20px;
-            line-height: 1.6;
-        }
-        h1 {
-            color: #333;
-        }
-    </style>
+    <title>Arithmetic Operations</title>
 </head>
 <body>
-    <h1>Lab Task</h1>
-    <p>This is a template for the lab task.</p>
+    <h1>Arithmetic Operations</h1>
     
-    <div id="content">
-        <!-- Task content goes here -->
+    <div>
+        <input type="number" id="num1" placeholder="Number 1">
+        <input type="number" id="num2" placeholder="Number 2">
     </div>
-
+    
+    <div>
+        <button onclick="performOperation('add')">Add</button>
+        <button onclick="performOperation('subtract')">Subtract</button>
+        <button onclick="performOperation('multiply')">Multiply</button>
+        <button onclick="performOperation('divide')">Divide</button>
+    </div>
+    
+    <p id="result">Result will appear here</p>
+    
     <script>
-        // JavaScript code can be added here
+        function performOperation(operation) {
+            const num1 = parseFloat(document.getElementById('num1').value);
+            const num2 = parseFloat(document.getElementById('num2').value);
+            
+            if (isNaN(num1) || isNaN(num2)) {
+                alert('Please enter valid numbers');
+                return;
+            }
+            
+            let result;
+            switch(operation) {
+                case 'add':
+                    result = num1 + num2;
+                    break;
+                case 'subtract':
+                    result = num1 - num2;
+                    break;
+                case 'multiply':
+                    result = num1 * num2;
+                    break;
+                case 'divide':
+                    if (num2 === 0) {
+                        alert('Cannot divide by zero');
+                        return;
+                    }
+                    result = num1 / num2;
+                    break;
+            }
+            
+            document.getElementById('result').textContent = `Result: ${result}`;
+        }
     </script>
 </body>
 </html>

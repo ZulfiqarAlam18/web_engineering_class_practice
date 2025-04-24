@@ -3,29 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lab Task</title>
+    <title>Age Category Checker</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 20px;
-            line-height: 1.6;
+        .result {
+            margin-top: 20px;
+            padding: 10px;
+            border-radius: 5px;
         }
-        h1 {
-            color: #333;
-        }
+        .minor { background-color: #ffcccb; }
+        .adult { background-color: #90EE90; }
+        .senior { background-color: #ADD8E6; }
     </style>
 </head>
 <body>
-    <h1>Lab Task</h1>
-    <p>This is a template for the lab task.</p>
-    
-    <div id="content">
-        <!-- Task content goes here -->
-    </div>
+    <h1>Age Category Checker</h1>
+    <form method="post">
+        <label for="age">Enter your age:</label>
+        <input type="number" id="age" name="age" min="0" max="120" required>
+        <button type="submit">Check Category</button>
+    </form>
 
-    <script>
-        // JavaScript code can be added here
-    </script>
+    <?php
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        $age = $_POST['age'];
+        $category = '';
+        $class = '';
+        
+        if ($age < 18) {
+            $category = "minor";
+            $class = "minor";
+        } elseif ($age >= 18 && $age < 60) {
+            $category = "adult";
+            $class = "adult";
+        } else {
+            $category = "senior citizen";
+            $class = "senior";
+        }
+        
+        echo "<div class='result $class'>";
+        echo "At $age years old, you are a $category.";
+        echo "</div>";
+    }
+    ?>
 </body>
 </html>

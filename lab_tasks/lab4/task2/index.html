@@ -3,29 +3,84 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lab Task</title>
+    <title>Feedback Form</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 20px;
-            line-height: 1.6;
-        }
-        h1 {
-            color: #333;
-        }
+        .error { color: red; }
     </style>
 </head>
 <body>
-    <h1>Lab Task</h1>
-    <p>This is a template for the lab task.</p>
+    <h1>Feedback Form</h1>
     
-    <div id="content">
-        <!-- Task content goes here -->
-    </div>
-
+    <form id="feedback-form">
+        <div>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name">
+            <span id="name-error" class="error"></span>
+        </div>
+        
+        <div>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email">
+            <span id="email-error" class="error"></span>
+        </div>
+        
+        <div>
+            <label for="rating">Rating (1-5):</label>
+            <input type="number" id="rating" name="rating" min="1" max="5">
+            <span id="rating-error" class="error"></span>
+        </div>
+        
+        <div>
+            <label for="comments">Comments:</label>
+            <textarea id="comments" name="comments"></textarea>
+            <span id="comments-error" class="error"></span>
+        </div>
+        
+        <button type="submit">Submit Feedback</button>
+    </form>
+    
     <script>
-        // JavaScript code can be added here
+        document.getElementById('feedback-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Reset error messages
+            document.querySelectorAll('.error').forEach(el => el.textContent = '');
+            
+            // Validate form
+            let isValid = true;
+            
+            const name = document.getElementById('name').value.trim();
+            if (name === '') {
+                document.getElementById('name-error').textContent = 'Name is required';
+                isValid = false;
+            }
+            
+            const email = document.getElementById('email').value.trim();
+            if (email === '') {
+                document.getElementById('email-error').textContent = 'Email is required';
+                isValid = false;
+            } else if (!email.includes('@') || !email.includes('.')) {
+                document.getElementById('email-error').textContent = 'Enter a valid email';
+                isValid = false;
+            }
+            
+            const rating = document.getElementById('rating').value;
+            if (rating === '' || rating < 1 || rating > 5) {
+                document.getElementById('rating-error').textContent = 'Enter a rating between 1 and 5';
+                isValid = false;
+            }
+            
+            const comments = document.getElementById('comments').value.trim();
+            if (comments === '') {
+                document.getElementById('comments-error').textContent = 'Comments are required';
+                isValid = false;
+            }
+            
+            if (isValid) {
+                alert('Thank you for your feedback!');
+                this.reset();
+            }
+        });
     </script>
 </body>
 </html>

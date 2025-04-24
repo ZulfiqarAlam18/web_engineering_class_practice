@@ -3,29 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lab Task</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 20px;
-            line-height: 1.6;
-        }
-        h1 {
-            color: #333;
-        }
-    </style>
+    <title>Multimedia Page</title>
 </head>
 <body>
-    <h1>Lab Task</h1>
-    <p>This is a template for the lab task.</p>
+    <h1>Multimedia Experience</h1>
     
-    <div id="content">
-        <!-- Task content goes here -->
-    </div>
-
-    <script>
-        // JavaScript code can be added here
-    </script>
+    <h2>Audio Player</h2>
+    <audio controls>
+        <source src="media/audio.mp3" type="audio/mpeg">
+        <source src="media/audio.ogg" type="audio/ogg">
+        Your browser does not support the audio element.
+    </audio>
+    
+    <h2>Video Player</h2>
+    <video controls width="600" poster="media/poster.jpg">
+        <source src="media/video.mp4" type="video/mp4">
+        <source src="media/video.webm" type="video/webm">
+        <track src="media/subtitles_en.vtt" kind="subtitles" srclang="en" label="English">
+        Your browser does not support the video element.
+    </video>
 </body>
 </html>

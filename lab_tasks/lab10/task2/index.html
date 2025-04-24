@@ -3,29 +3,125 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lab Task</title>
+    <title>Phone Directory</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 20px;
-            line-height: 1.6;
-        }
-        h1 {
-            color: #333;
-        }
+        table { border-collapse: collapse; width: 100%; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background-color: #f2f2f2; }
+        form { margin-bottom: 20px; }
+        .error { color: red; }
     </style>
 </head>
 <body>
-    <h1>Lab Task</h1>
-    <p>This is a template for the lab task.</p>
+    <h1>Phone Directory</h1>
     
-    <div id="content">
-        <!-- Task content goes here -->
-    </div>
-
-    <script>
-        // JavaScript code can be added here
-    </script>
+    <?php
+    // Initialize phone directory array
+    $phoneDirectory = [];
+    
+    // Load existing data if available
+    if (file_exists('phone_directory.json')) {
+        $phoneDirectory = json_decode(file_get_contents('phone_directory.json'), true);
+    }
+    
+    // Handle form submission
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        $name = trim($_POST['name']);
+        $phone = trim($_POST['phone']);
+        $errors = [];
+        
+        // Validate input
+        if (empty($name)) {
+            $errors['name'] = "Name is required";
+        }
+        
+        if (empty($phone)) {
+            $errors['phone'] = "Phone number is required";
+        } elseif (!preg_match('/^[0-9+\- ]+$/', $phone)) {
+            $errors['phone'] = "Invalid phone number format";
+        }
+        
+        // If no errors, add to directory
+        if (empty($errors)) {
+            $phoneDirectory[] = [
+                'name' => $name,
+                'phone' => $phone,
+                'timestamp' => time()
+            ];
+            
+            // Save to file
+            file_put_contents('phone_directory.json', json_encode($phoneDirectory));
+            
+            // Redirect to prevent form resubmission
+            header("Location: " . $_SERVER['PHP_SELF']);
+            exit;
+        }
+    }
+    
+    // Handle search
+    $searchResults = [];
+    if (isset($_GET['search'])) {
+        $searchTerm = strtolower(trim($_GET['search']));
+        
+        foreach ($phoneDirectory as $entry) {
+            if (strpos(strtolower($entry['name']), $searchTerm) !== false || 
+                strpos($entry['phone'], $searchTerm) !== false) {
+                $searchResults[] = $entry;
+            }
+        }
+    }
+    ?>
+    
+    <!-- Add new entry form -->
+    <form method="post">
+        <h2>Add New Entry</h2>
+        <div>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+            <span class="error"><?php echo $errors['name'] ?? ''; ?></span>
+        </div>
+        <div>
+            <label for="phone">Phone Number:</label>
+            <input type="tel" id="phone" name="phone" required>
+            <span class="error"><?php echo $errors['phone'] ?? ''; ?></span>
+        </div>
+        <button type="submit">Add Entry</button>
+    </form>
+    
+    <!-- Search form -->
+    <form method="get">
+        <h2>Search Directory</h2>
+        <input type="text" name="search" placeholder="Search by name or phone">
+        <button type="submit">Search</button>
+        <a href="?">Show All</a>
+    </form>
+    
+    <!-- Display directory -->
+    <h2><?php echo isset($_GET['search']) ? 'Search Results' : 'All Entries'; ?></h2>
+    <?php if (empty($phoneDirectory) && !isset($_GET['search'])): ?>
+        <p>No entries in the directory yet.</p>
+    <?php elseif (isset($_GET['search']) && empty($searchResults)): ?>
+        <p>No results found for "<?php echo htmlspecialchars($_GET['search']); ?>".</p>
+    <?php else: ?>
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Phone Number</th>
+                <th>Date Added</th>
+            </tr>
+            <?php
+            $entriesToShow = isset($_GET['search']) ? $searchResults : $phoneDirectory;
+            
+            foreach ($entriesToShow as $entry): 
+                $dateAdded = date('Y-m-d H:i:s', $entry['timestamp']);
+            ?>
+                <tr>
+                    <td><?php echo htmlspecialchars($entry['name']); ?></td>
+                    <td><?php echo htmlspecialchars($entry['phone']); ?></td>
+                    <td><?php echo $dateAdded; ?></td>
+                </tr>
+            <?php endforeach; ?>
+        </table>
+    <?php endif; ?>
 </body>
 </html>

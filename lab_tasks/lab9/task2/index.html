@@ -3,29 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lab Task</title>
+    <title>Number Guessing Game</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 20px;
-            line-height: 1.6;
-        }
-        h1 {
-            color: #333;
-        }
+        .feedback { margin: 15px 0; padding: 10px; }
+        .low { background-color: #ffcccb; }
+        .high { background-color: #ffcccb; }
+        .correct { background-color: #90EE90; }
     </style>
 </head>
 <body>
-    <h1>Lab Task</h1>
-    <p>This is a template for the lab task.</p>
+    <h1>Number Guessing Game (1-100)</h1>
     
-    <div id="content">
-        <!-- Task content goes here -->
-    </div>
-
-    <script>
-        // JavaScript code can be added here
-    </script>
+    <?php
+    session_start();
+    
+    // Initialize game if not already started
+    if (!isset($_SESSION['target']) || isset($_GET['newgame'])) {
+        $_SESSION['target'] = rand(1, 100);
+        $_SESSION['attempts'] = 0;
+        $_SESSION['guesses'] = [];
+        echo "<p>New game started! Guess a number between 1 and 100.</p>";
+    }
+    
+    if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['guess'])) {
+        $guess = (int)$_POST['guess'];
+        $_SESSION['attempts']++;
+        $_SESSION['guesses'][] = $guess;
+        
+        if ($guess < 1 || $guess > 100) {
+            echo "<div class='feedback'>Please enter a number between 1 and 100.</div>";
+        } elseif ($guess < $_SESSION['target']) {
+            echo "<div class='feedback low'>Your guess $guess is too low. Attempt #{$_SESSION['attempts']}</div>";
+        } elseif ($guess > $_SESSION['target']) {
+            echo "<div class='feedback high'>Your guess $guess is too high. Attempt #{$_SESSION['attempts']}</div>";
+        } else {
+            echo "<div class='feedback correct'>";
+            echo "Congratulations! You guessed the number {$_SESSION['target']} in {$_SESSION['attempts']} attempts!";
+            echo "</div>";
+            
+            // Show previous guesses
+            if (!empty($_SESSION['guesses'])) {
+                echo "<p>Your guesses: " . implode(', ', $_SESSION['guesses']) . "</p>";
+            }
+            
+            // Reset the game
+            unset($_SESSION['target']);
+        }
+    }
+    ?>
+    
+    <form method="post">
+        <label for="guess">Enter your guess:</label>
+        <input type="number" id="guess" name="guess" min="1" max="100" required>
+        <button type="submit">Submit Guess</button>
+    </form>
+    
+    <p><a href="?newgame=1">Start New Game</a></p>
 </body>
 </html>

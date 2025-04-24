@@ -3,29 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lab Task</title>
+    <title>Modified Box Model</title>
     <style>
-        body {
+        .box {
+            width: 400px;
+            height: 250px;
+            padding: 30px;
+            border: 8px dashed #e74c3c;
+            margin: 40px auto; /* Centered with auto margins */
+            background-color: #2ecc71;
+            color: white;
             font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 20px;
-            line-height: 1.6;
-        }
-        h1 {
-            color: #333;
         }
     </style>
 </head>
 <body>
-    <h1>Lab Task</h1>
-    <p>This is a template for the lab task.</p>
-    
-    <div id="content">
-        <!-- Task content goes here -->
+    <div class="box">
+        This box has modified properties: wider, taller, more padding, dashed border, different colors, and centered with auto margins.
     </div>
-
-    <script>
-        // JavaScript code can be added here
-    </script>
 </body>
 </html>

@@ -3,29 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lab Task</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 20px;
-            line-height: 1.6;
-        }
-        h1 {
-            color: #333;
-        }
-    </style>
+    <title>Age Category Checker</title>
 </head>
 <body>
-    <h1>Lab Task</h1>
-    <p>This is a template for the lab task.</p>
+    <h1>Age Category Checker</h1>
     
-    <div id="content">
-        <!-- Task content goes here -->
-    </div>
-
-    <script>
-        // JavaScript code can be added here
-    </script>
+    <form method="post">
+        <label for="age">Enter your age:</label>
+        <input type="number" id="age" name="age" required>
+        <button type="submit">Check Category</button>
+    </form>
+    
+    <?php
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        $age = $_POST['age'];
+        
+        if ($age < 0) {
+            echo "<p>Please enter a valid age.</p>";
+        } elseif ($age < 13) {
+            echo "<p>At $age years old, you are a child.</p>";
+        } elseif ($age < 18) {
+            echo "<p>At $age years old, you are a teenager.</p>";
+        } elseif ($age < 60) {
+            echo "<p>At $age years old, you are an adult.</p>";
+        } else {
+            echo "<p>At $age years old, you are a senior citizen.</p>";
+        }
+    }
+    ?>
 </body>
 </html>
