@@ -1,0 +1,162 @@
+* {
+
+
+    background-color: grey;
+
+
+}
+
+div * {
+
+
+    background-color: chocolate;
+
+
+
+}
+
+p {
+
+    background-color: white;
+
+
+}
+
+h1 {
+
+    background-color: blue;
+
+
+}
+
+.btn {
+
+
+    background-color: red;
+    color: white;
+    padding: 20px 50px 20px 50px;
+    border-radius: 10px;
+    border: 4px solid black;
+    font-size: 30px;
+    font-family: 'Times New Roman', Times, serif;
+    text-align: center;
+    margin: 100px;
+    cursor: pointer;
+
+}
+
+.btn:hover {
+
+
+    background-color: white;
+    color: black;
+    border: 4px solid black;
+    font-size: 30px;
+    font-family: 'Times New Roman', Times, serif;
+    text-align: center;
+    margin: 100px;
+    cursor: pointer;
+
+}
+
+.btn:active {
+
+    background-color: black;
+    color: white;
+    border: 4px solid black;
+    font-size: 30px;
+    font-family: 'Times New Roman', Times, serif;
+    text-align: center;
+    margin: 100px;
+    cursor: pointer;
+
+
+
+}
+.btn:visited {
+
+
+    background-color: black;
+    color: white;
+    border: 4px solid black;
+    font-size: 30px;
+    font-family: 'Times New Roman', Times, serif;
+    text-align: center;
+    margin: 100px;
+    cursor: pointer;
+
+
+
+}
+
+/* 
+//playing around css with div tag */
+
+#box {
+
+    background-color: white;
+    width: 600px;
+    height: 200px;
+    border: 2px solid black;
+    border-radius: 10px;
+    margin: 100px;
+    padding: 100px 100px 100px 100px;
+    text-align: center;
+    font-size: 30px;
+    font-family: 'Times New Roman', Times, serif;
+    color: black;
+    cursor: pointer;
+    display: flex;
+    space-between: 200px;
+    justify-content: space-between;
+    align-items: center;
+    align-content: center;
+    /* flex-direction: column; */
+    flex-direction: row;
+    flex-wrap: wrap;
+    flex-flow: row wrap;
+    border: 8px solid rgb(209, 81, 42);
+   /* // border-style: dotted;
+   //border-style: dashed;
+  // border-style: double;
+  //border-style: groove;
+  //border-style: ridge;
+  //border-style: inset;
+  //border-style: outset;
+  //border-style: none;
+  //border-style: hidden;
+  //border-style: mix;
+   */
+
+  .container {
+   
+    background-image: url("tiger.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+
+
+  }
+
+.container2 {
+
+   background-color: green;
+   color: black;
+   width: 100px;
+   height: 100px;
+
+
+}
+
+.para {
+
+    color: white;
+    background-color: black;
+    opacity: 0.3;
+
+
+}
+
+
+
+}
