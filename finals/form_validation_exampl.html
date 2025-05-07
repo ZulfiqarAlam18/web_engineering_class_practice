@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <form action="" id="contactForm">
+
+        <label for="">Name</label>
+        <input type="text" name="name" id="name">
+        <span id="name_error" style="color:red"></span>
+        <br>
+        <label for="">Email</label>
+        <input type="email" name="email" id="email">
+        <span id="email_error" style="color:red"></span>
+        <br>
+        <button type="button">Submit</button>
+
+
+
+
+    </form>
+
+    <script>
+
+        document.getElementById('contactForm').addEventListener('submit',function(event){
+
+           event.preventDefault() ;
+           var name = document.getElementById('name').value.trim();
+           var email = document.getElementById('email').value.trim();
+
+           var showError = document.getElementById('name_error');
+           var showError2 = document.getElementById('email_error');
+           if(name == ''){
+               showError.innerHTML = 'Name is required';
+           }else{
+               showError.innerHTML = '';
+           }
+           if(email == ''){
+               showError2.innerHTML = 'Email is required';
+           }else{
+               showError2.innerHTML = '';
+           }
+
+           
+
+
+
+        })
+
+    </script>
+
+
+
+</body>
+</html>
