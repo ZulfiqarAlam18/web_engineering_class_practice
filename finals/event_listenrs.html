@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+
+
+    <p>1 .inline</p>
+    <button onclick="showMessage()">Click Me</button>
+    <p>2. Traditional dom event handler</p>
+    <button id="btn">Click Me</button>
+
+    <p>3. addEventListener</p>
+    <button id="btn2">Click Me</button>
+
+    <p>4. removeEventListener</p>
+    <button id="btn3">Click Me</button>
+
+
+    <h1>-----------------------------</h1>
+    <h3>On key event </h3>
+    <input type="text" id="input" onkeyup= "func()" placeholder="Type something...">
+
+    <h1>onmouseOver event: hovering</h1>
+    <button  id="btn4" onmouseover="changeColor()" type="button" style="background-color: red; color: white; cursor: pointer;">Click me</button>
+
+
+    <br> <br>
+    <button type="button" onload="alert('Page is loaded')">Loaded</button>
+
+
+    <br><br>
+    <h1>---------------------------------</h1>
+    <button id="btn5" onclick="blue()" ondblclick="red()" onmousedown="yellow()"" onmouseover="green()">Click me </button>
+    <h1>---------------------------------</h1>
+    <label for="">Name:</label>
+    <input type="text" id="name" onblur="onBlur()" onfocus="onFocus()" onchange="onChange()" placeholder="Type something...">
+
+
+    <input type="text" onfocus="this.style.backgroundColor='lightyellow'" onblur="this.style.backgroundColor='purple'" onmouseover="this.style.backgroundColor='lightblue'"placeholder="Click here">
+
+
+
+
+
+<script>
+    // INLINE
+  function showMessage() {
+    alert("Inline handler called!");
+  }
+  // TRANDIONAL DOM
+  document.getElementById("btn").onclick = function () {
+    alert("Traditional handler called!");
+  };
+  // ADD EVENT LISTENER
+  function first() {
+    alert("First listener");
+  }
+
+  function second() {
+    alert("Second listener");
+  }
+  function third() {
+    alert("Third listener");
+  }
+
+  const btn = document.getElementById("btn2");
+  btn.addEventListener("click", first);
+  btn.addEventListener("click", second);
+  btn.addEventListener("click", third);
+
+  // REMOVE EVENT LISTENER
+  function greet() {
+    alert("Greeted!");
+    btn3.removeEventListener("click", greet); // Remove itself
+  }
+
+  const btn3 = document.getElementById("btn3");
+  btn3.addEventListener("click", greet);
+
+ 
+  function func() {
+
+    let x = document.getElementById("input").value;
+    x.value = x.value.toUpperCase();
+
+
+
+  }
+
+  function changeColor() {
+
+     var e = document.getElementById('btn4');
+     e.style.backgroundColor = "blue";
+
+
+  }
+
+
+  // changing color using event types:
+  function blue(){
+    var e = document.getElementById('btn5');
+    e.style.backgroundColor = "blue";
+
+}
+function red(){
+    var e = document.getElementById('btn5');
+    e.style.backgroundColor = "red";
+
+}
+function green(){
+    var e = document.getElementById('btn5');
+    e.style.backgroundColor = "green";
+
+}
+function yellow(){
+    var e = document.getElementById('btn5');
+    e.style.backgroundColor = "yellow";
+
+}
+
+
+function onChange(){
+   
+}
+
+function onBlur(){
+   
+}
+
+function onFocus(){
+   
+}
+
+
+</script>
+
+
+
+
+
+
+
+</body>
+</html>
