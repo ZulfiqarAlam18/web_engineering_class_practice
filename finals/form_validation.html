@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <form action="" onsubmit="return validator()">
+
+        <label for="">Male</label>
+        <input type="radio" name="gender" id="male">
+        <label for="">Female</label>
+        <input type="radio" name="gender" id="female">
+        <button type="submit">Submit</button>
+
+
+    </form>
+
+    <script>
+
+        function validator(){
+
+            var male = document.getElementById('male');
+            var female = document.getElementById('female');
+
+            if (!male.checked && !female.checked){
+                alert('Please select your gender');
+                return false;
+            }
+
+
+        }
+
+    </script>
+
+
+</body>
+</html>
