@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <label for="">Enter Number 1 :</label>
+    <input type="number" name="num1" id="num1" required>
+    <br>
+    <label for="">Enter Number 2 :</label>
+    <input type="number" name="num2" id="num2" required>
+    <br>
+    <label for="">Enter Operator(+,-,*,/) :</label>
+    <input type="text" name="op" id="op" required>
+    <br>
+    <button onclick="cal()">Get Result</button>
+    <br>
+    <p id="result">Yet No result</p>
+
+    <script>
+
+
+       function cal () {
+        const num1 = Number(document.getElementById("num1").value);
+            const num2 = Number(document.getElementById("num2").value);
+            const op = document.getElementById("op").value;
+            let result = 0;
+
+            if (op == '+'){
+            result = num1+num2;
+            }else if(op == '-'){
+                 result =num1-num2;
+            }else if(op == '*'){
+                result = num1*num2;
+            }else if(op == '/'){
+             result = num1/num2;
+            }else{
+                 "Invalid Operator";
+            }
+
+            document.getElementById("result").innerText = result;
+
+       }
+
+       function sumUpto100(){
+           let sum = 0;
+           for (let i = 1; i <= 100; i++) {
+               sum += i;
+           }
+           console.log(sum);
+       }
+
+       //do while loop 
+       function sumUpto100(){
+           let sum = 0;
+           let i = 1;
+           do{
+               sum += i;
+               i++;
+           }while(i<=100);
+           console.log(sum);
+       }
+
+       // swtich statement
+
+    
+
+
+
+    </script>
+
+    
+</body>
+</html>

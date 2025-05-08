@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>Average of marks</p>
+    <p id="id">No Value Yet</p>
+
+
+    <script>
+
+        var arr = [80,77,88,95,68];
+
+        var sum = 0;
+
+        for (let i =1; i<arr.length; i++){
+            sum = sum + arr[i];
+        }
+        var avg = sum/arr.length;
+        document.getElementById('id').innerText = avg;
+
+        if (avg > 80 && avg <= 100){
+            console.log("A");
+        }else if(avg > 70){
+            console.log("B");
+        }else if(avg > 60){
+            console.log("C");
+        }else if(avg < 60){
+            console.log("fail");
+        }else{
+            console.log("F");
+        }
+
+
+    </script>
+
+</body>
+</html>

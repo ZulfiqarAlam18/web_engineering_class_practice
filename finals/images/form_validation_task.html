@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Pizza Order</title>
+  <style>
+    .error {
+      color: red;
+      margin: 5px 0;
+    }
+  </style>
+</head>
+<body>
+  <form id="form">
+    <p><strong>Pizza</strong></p>
+    <label>Simply Veg</label>
+    <input type="radio" name="pizza" value="Simply Veg">
+    <label>Veg Supreme</label>
+    <input type="radio" name="pizza" value="Veg Supreme">
+    <label>Veg Delight</label>
+    <input type="radio" name="pizza" value="Veg Delight">
+
+    <p><strong>Size</strong></p>
+    <label>Small</label>
+    <input type="radio" name="size" value="Small">
+    <label>Medium</label>
+    <input type="radio" name="size" value="Medium">
+    <label>Large</label>
+    <input type="radio" name="size" value="Large">
+
+    <p><strong>Crust</strong></p>
+    <label>Thin</label>
+    <input type="radio" name="crust" value="Thin">
+    <label>Normal</label>
+    <input type="radio" name="crust" value="Normal">
+    <label>Special</label>
+    <input type="radio" name="crust" value="Special">
+
+    <p><strong>Payment Method</strong></p>
+    <select id="payment">
+      <option value="">-- Select Payment Method --</option>
+      <option value="Easypaisa">Easypaisa</option>
+      <option value="JazzCash">JazzCash</option>
+      <option value="SadaPay">SadaPay</option>
+      <option value="NayaPay">NayaPay</option>
+    </select><br><br>
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+      <meta charset="UTF-8">
+      <title>Pizza Order</title>
+      <style>
+        .error {
+          color: red;
+          margin: 5px 0;
+        }
+      </style>
+    </head>
+    <body>
+      <form id="form">
+        <p><strong>Pizza</strong></p>
+        <label>Simply Veg</label>
+        <input type="radio" name="pizza" value="Simply Veg">
+        <label>Veg Supreme</label>
+        <input type="radio" name="pizza" value="Veg Supreme">
+        <label>Veg Delight</label>
+        <input type="radio" name="pizza" value="Veg Delight">
+    
+        <p><strong>Size</strong></p>
+        <label>Small</label>
+        <input type="radio" name="size" value="Small">
+        <label>Medium</label>
+        <input type="radio" name="size" value="Medium">
+        <label>Large</label>
+        <input type="radio" name="size" value="Large">
+    
+        <p><strong>Crust</strong></p>
+        <label>Thin</label>
+        <input type="radio" name="crust" value="Thin">
+        <label>Normal</label>
+        <input type="radio" name="crust" value="Normal">
+        <label>Special</label>
+        <input type="radio" name="crust" value="Special">
+    
+        <p><strong>Payment Method</strong></p>
+        <select id="payment">
+          <option value="">-- Select Payment Method --</option>
+          <option value="Easypaisa">Easypaisa</option>
+          <option value="JazzCash">JazzCash</option>
+          <option value="SadaPay">SadaPay</option>
+          <option value="NayaPay">NayaPay</option>
+        </select><br><br>
+    
+        <label>
+          <input type="checkbox" id="agree">
+          Agree to terms & conditions
+        </label><br><br>
+    
+        <label>Discount Code:</label>
+        <input type="text" id="discount"><br><br>
+    
+        <label>Name:</label>
+        <input type="text" id="name"><br>
+        <label>Email:</label>
+        <input type="email" id="email"><br>
+        <label>Phone:</label>
+        <input type="number" id="phone"><br>
+        <label>Address:</label>
+        <input type="text" id="address"><br><br>
+    
+        <div id="error" class="error"></div>
+    
+        <button type="submit" id="submit">Submit Order</button>
+      </form>
+    
+      <h3>--------------------------------------</h3>
+      <p>Your Inserted Data</p>
+      <h3>--------------------------------------</h3>
+      <p id="id">No Data Inserted Yet</p>
+    
+      <script>
+        document.getElementById('form').addEventListener('submit', function(event) {
+          event.preventDefault();
+    
+          const pizza = document.querySelector('input[name="pizza"]:checked')?.value;
+          const size = document.querySelector('input[name="size"]:checked')?.value;
+          const crust = document.querySelector('input[name="crust"]:checked')?.value;
+          const payment = document.getElementById('payment').value;
+          const agree = document.getElementById('agree').checked;
+          const name = document.getElementById('name').value.trim();
+          const email = document.getElementById('email').value.trim();
+          const phone = document.getElementById('phone').value.trim();
+          const address = document.getElementById('address').value.trim();
+          const discount = document.getElementById('discount').value;
+    
+          const errorEl = document.getElementById('error');
+          errorEl.innerHTML = '';
+    
+          // Basic validation
+          if (!pizza || !size || !crust || !payment || !name || !email || !phone || !address || !agree) {
+            errorEl.textContent = 'Please fill all required fields and agree to terms.';
+            return;
+          }
+    
+          // Email format
+          const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+          if (!emailPattern.test(email)) {
+            errorEl.textContent = 'Please enter a valid email address.';
+            return;
+          }
+    
+          // Phone length
+          if (phone.length < 10) {
+            errorEl.textContent = 'Phone number must be at least 10 digits.';
+            return;
+          }
+    
+          // All clear - show data
+          document.getElementById('id').innerHTML = `
+            <strong>Pizza:</strong> ${pizza}<br>
+            <strong>Size:</strong> ${size}<br>
+            <strong>Crust:</strong> ${crust}<br>
+            <strong>Payment Method:</strong> ${payment}<br>
+            <strong>Terms & Conditions:</strong> ${agree ? "Agreed" : "Not Agreed"}<br>
+            <strong>Discount Code:</strong> ${discount || 'None'}<br><br>
+            <strong>Name:</strong> ${name}<br>
+            <strong>Email:</strong> ${email}<br>
+            <strong>Phone:</strong> ${phone}<br>
+            <strong>Address:</strong> ${address}
+          `;
+        });
+      </script>
+    </body>
+    </html>
+     <label>
+      <input type="checkbox" id="agree">
+      Agree to terms & conditions
+    </label><br><br>
+
+    <label>Discount Code:</label>
+    <input type="text" id="discount"><br><br>
+
+    <label>Name:</label>
+    <input type="text" id="name"><br>
+    <label>Email:</label>
+    <input type="email" id="email"><br>
+    <label>Phone:</label>
+    <input type="number" id="phone"><br>
+    <label>Address:</label>
+    <input type="text" id="address"><br><br>
+
+    <div id="error" class="error"></div>
+
+    <button type="submit" id="submit">Submit Order</button>
+  </form>
+
+  <h3>--------------------------------------</h3>
+  <p>Your Inserted Data</p>
+  <h3>--------------------------------------</h3>
+  <p id="id">No Data Inserted Yet</p>
+
+  <script>
+    document.getElementById('form').addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      const pizza = document.querySelector('input[name="pizza"]:checked')?.value;
+      const size = document.querySelector('input[name="size"]:checked')?.value;
+      const crust = document.querySelector('input[name="crust"]:checked')?.value;
+      const payment = document.getElementById('payment').value;
+      const agree = document.getElementById('agree').checked;
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      const address = document.getElementById('address').value.trim();
+      const discount = document.getElementById('discount').value;
+
+      const errorEl = document.getElementById('error');
+      errorEl.innerHTML = '';
+
+      // Basic validation
+      if (!pizza || !size || !crust || !payment || !name || !email || !phone || !address || !agree) {
+        errorEl.textContent = 'Please fill all required fields and agree to terms.';
+        return;
+      }
+
+      // Email format
+      const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+      if (!emailPattern.test(email)) {
+        errorEl.textContent = 'Please enter a valid email address.';
+        return;
+      }
+
+      // Phone length
+      if (phone.length < 10) {
+        errorEl.textContent = 'Phone number must be at least 10 digits.';
+        return;
+      }
+
+      // All clear - show data
+      document.getElementById('id').innerHTML = `
+        <strong>Pizza:</strong> ${pizza}<br>
+        <strong>Size:</strong> ${size}<br>
+        <strong>Crust:</strong> ${crust}<br>
+        <strong>Payment Method:</strong> ${payment}<br>
+        <strong>Terms & Conditions:</strong> ${agree ? "Agreed" : "Not Agreed"}<br>
+        <strong>Discount Code:</strong> ${discount || 'None'}<br><br>
+        <strong>Name:</strong> ${name}<br>
+        <strong>Email:</strong> ${email}<br>
+        <strong>Phone:</strong> ${phone}<br>
+        <strong>Address:</strong> ${address}
+      `;
+    });
+  </script>
+</body>
+</html>

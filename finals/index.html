@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Final Practice</title>
+
+    <script src="scrpit.js" defer></script>
+
+</head>
+
+<body>
+
+    <h1>Final Practice</h1>
+    <h2>--------------------------------------</h2>
+    <h1>Topic 1 : JS and it's basics</h1>
+    h2>--------------------------------------</h2>
+    <h1>3 ways of using js in html <br>1. inline <br>2. internal ( either inside head tag or end of body tag) <br>3. exteranl </h1>
+    <h2>1 method inline </h2>
+    <button onclick="alert('Hello World')">Click me</button>
+    <button onclick="alert('Name : Zulfiqar Alam , Roll No : 21sw018')">Show Data</button>
+
+
+    <h2>2 method internal</h2>
+
+    <button onclick="showMessage()">Show Message</button>
+
+    <!-- // js scrpit -->
+    <script>
+
+        function showMessage() {
+            alert("Hello from internal JS!");
+        }
+
+        function demoo(){
+
+            document.getElementById("demo").innerHTML = "Button clicked!";
+
+
+
+        };
+
+        function seeOrignalText(){
+
+            // document.getElementById("demo").innerHTML = "This content will change dynamically.";
+            document.getElementById("demo").innerText = "This content will change dynamically.";
+        }
+
+        function temp(){
+
+
+            document.getElementById("id2").innerText = "This content will change dynamically.";
+           document.getElementById("id1").innerHTML = " <div> no more a para tag , now it is demo tag </div>";
+
+
+
+
+        };
+        // document.wrtie(5+10);
+        // windows.alert(5+10);
+
+
+        
+    </script>
+
+
+
+
+    <h2>3 method external</h2>
+    <button onclick="showData()">Exteranl js button</button>
+
+    <h2>--------------------------------------</h2>
+    h1>Topic 2 : JS basics</h1>
+    <button onclick="console.log('Hello World')">consol log</button>
+    <button onclick="console.log('Name : Zulfiqar Alam , Roll No : 21sw018')">consol log 2</button>
+    <button onmouseover="console.log('Hello World')">On Mouse over</button>
+
+    <h2>--------------------------------------</h2>
+
+
+    <h2>Changing content dynamically</h2>
+    <button onclick="demoo()">Change Content</button>
+    <p id="demo">This content will change dynamically.</p>
+
+    <button onclick="seeOrignalText()">See original content</button>
+
+    <h2>--------------------------------------</h2>
+    <p>innerhtml for change element inner text to change plain text of element</p>
+
+    <p id="id1" style="color: rgb(224, 70, 91);">Inner Html</p>
+    <p id="id2">Inner Text</p>
+    <button onclick="temp()">Change Element</button>
+    <button onclick="temp()">Change only text</button>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h1>--------------------------------------</h1>
+    <button onclick="basics()"> Js Basics</button>
+    h1>--------------------------------------</h1>
+    <p>document.write('Hello World')</p>
+
+</body>
+
+</html>

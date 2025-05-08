@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>onchange Example</title>
+</head>
+<body>
+
+  <label>Enter your name:</label>
+  <input type="text" id="nameInput" onchange="showMessage()">
+  
+  <p id="message">No input yet.</p>
+
+  <script>
+    function showMessage() {
+      const name = document.getElementById("nameInput").value;
+      document.getElementById("message").innerText = "Hello, " + name + "!";
+    }
+  </script>
+
+</body>
+</html>
