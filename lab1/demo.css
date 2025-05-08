@@ -1,0 +1,34 @@
+/* .container{
+     /* border: 2px;
+     border-style: solid;
+     border-color: red; 
+     
+    border: 5px solid green ;
+    width: 400px;
+    height: 200px;
+
+}
+
+.label{
+
+border-color: red !important;
+
+}
+label-2{
+
+
+border-color: black !important;
+border: 5px;
+border-style: solid;
+
+} */
+
+
+div, label {
+    border: 5px solid green ;
+    width: 400px;
+    height: 200px;   
+}
+
+/* div , label , h1 to h6 , p , span , a , input , image , nav , header , marquee,  */
+

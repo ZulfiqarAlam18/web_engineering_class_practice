@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PHP Functions</title>
+</head>
+<body>
+    <h1>PHP Functions Demonstration</h1>
+    
+    <?php
+    // Factorial function
+    function factorial($n) {
+        if ($n <= 1) return 1;
+        return $n * factorial($n - 1);
+    }
+    
+    // Overloaded arithmetic functions
+    function calculate() {
+        $args = func_get_args();
+        $count = count($args);
+        
+        if ($count < 2) return "Not enough arguments";
+        
+        $operation = $args[0];
+        $result = $args[1];
+        
+        for ($i = 2; $i < $count; $i++) {
+            switch ($operation) {
+                case 'add':
+                    $result += $args[$i];
+                    break;
+                case 'subtract':
+                    $result -= $args[$i];
+                    break;
+                case 'multiply':
+                    $result *= $args[$i];
+                    break;
+                case 'divide':
+                    if ($args[$i] == 0) return "Cannot divide by zero";
+                    $result /= $args[$i];
+                    break;
+                default:
+                    return "Invalid operation";
+            }
+        }
+        
+        return $result;
+    }
+    
+    // Number to words converter
+    function numberToWords($num) {
+        $ones = array("", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine");
+        $teens = array("ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen");
+        $tens = array("", "ten", "twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninety");
+        
+        if ($num == 0) return "zero";
+        if ($num < 0) return "minus " . numberToWords(abs($num));
+        
+        $words = "";
+        
+        if (($num / 1000000) >= 1) {
+            $words .= numberToWords((int)($num / 1000000)) . " million ";
+            $num %= 1000000;
+        }
+        
+        if (($num / 1000) >= 1) {
+            $words .= numberToWords((int)($num / 1000)) . " thousand ";
+            $num %= 1000;
+        }
+        
+        if (($num / 100) >= 1) {
+            $words .= numberToWords((int)($num / 100)) . " hundred ";
+            $num %= 100;
+        }
+        
+        if ($num > 0) {
+            if (!empty($words)) $words .= "and ";
+            
+            if ($num < 10) {
+                $words .= $ones[$num];
+            } elseif ($num < 20) {
+                $words .= $teens[$num - 10];
+            } else {
+                $words .= $tens[(int)($num / 10)];
+                if (($num % 10) > 0) {
+                    $words .= "-" . $ones[$num % 10];
+                }
+            }
+        }
+        
+        return trim($words);
+    }
+    
+    // Test the functions
+    echo "<h2>Factorial Function</h2>";
+    echo "Factorial of 5: " . factorial(5) . "<br>";
+    echo "Factorial of 7: " . factorial(7) . "<br>";
+    
+    echo "<h2>Overloaded Arithmetic Functions</h2>";
+    echo "Add (2, 3, 5): " . calculate('add', 2, 3, 5) . "<br>";
+    echo "Subtract (10, 3, 2): " . calculate('subtract', 10, 3, 2) . "<br>";
+    echo "Multiply (2, 3, 4): " . calculate('multiply', 2, 3, 4) . "<br>";
+    echo "Divide (100, 2, 5): " . calculate('divide', 100, 2, 5) . "<br>";
+    
+    echo "<h2>Number to Words Converter</h2>";
+    echo "123: " . numberToWords(123) . "<br>";
+    echo "4567: " . numberToWords(4567) . "<br>";
+    echo "8912345: " . numberToWords(8912345) . "<br>";
+    ?>
+</body>
+</html>

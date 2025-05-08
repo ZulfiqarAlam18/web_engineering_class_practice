@@ -1,0 +1,35 @@
+.box {
+    gap: 40px;
+    display: flex;
+    justify-content: center;
+    border: 5px solid ;
+
+
+
+
+
+}
+
+.box1{
+    width: 250px;
+    height: 250px;
+background-color: darkgray;
+padding: 20px 20px;
+box-shadow: 20px 20px 20px black;
+text-align: center;
+
+
+
+}
+.box2 {
+width: 250px;
+height: 250px;
+padding: 20px 20px;
+background-color: darkgreen;
+box-shadow: 10px 10px 10px 20px black;
+text-align: center;
+
+
+
+
+}

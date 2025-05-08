@@ -1,0 +1,143 @@
+<?php
+session_start();
+
+// Initialize variables
+$errors = [];
+$username = $email = '';
+$remember = false;
+
+// Check for remembered user
+if (isset($_COOKIE['remembered_user'])) {
+    $rememberedData = json_decode($_COOKIE['remembered_user'], true);
+    $username = $rememberedData['username'] ?? '';
+    $remember = true;
+}
+
+// Handle form submission
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Get form data
+    $username = trim($_POST['username']);
+    $email = trim($_POST['email']);
+    $password = $_POST['password'];
+    $confirmPassword = $_POST['confirm_password'];
+    $remember = isset($_POST['remember']);
+    
+    // Validate username
+    if (empty($username)) {
+        $errors['username'] = "Username is required";
+    } elseif (strlen($username) < 4) {
+        $errors['username'] = "Username must be at least 4 characters";
+    }
+    
+    // Validate email
+    if (empty($email)) {
+        $errors['email'] = "Email is required";
+    } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        $errors['email'] = "Invalid email format";
+    }
+    
+    // Validate password
+    if (empty($password)) {
+        $errors['password'] = "Password is required";
+    } elseif (strlen($password) < 6) {
+        $errors['password'] = "Password must be at least 6 characters";
+    }
+    
+    // Validate password confirmation
+    if ($password !== $confirmPassword) {
+        $errors['confirm_password'] = "Passwords do not match";
+    }
+    
+    // If no errors, process the form
+    if (empty($errors)) {
+        // In a real application, you would save to database here
+        
+        // Set remember me cookie if checked
+        if ($remember) {
+            $cookieData = json_encode(['username' => $username]);
+            setcookie('remembered_user', $cookieData, time() + (30 * 24 * 60 * 60), "/"); // 30 days
+        } else {
+            // Delete the cookie if remember me is not checked
+            setcookie('remembered_user', '', time() - 3600, "/");
+        }
+        
+        // Store user data in session
+        $_SESSION['user'] = [
+            'username' => $username,
+            'email' => $email
+        ];
+        
+        // Redirect to welcome page
+        header("Location: welcome.php");
+        exit;
+    }
+}
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; }
+        h1 { text-align: center; }
+        form { background: #f9f9f9; padding: 20px; border-radius: 5px; }
+        .form-group { margin-bottom: 15px; }
+        label { display: block; margin-bottom: 5px; font-weight: bold; }
+        input[type="text"], input[type="email"], input[type="password"] {
+            width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px;
+        }
+        .error { color: red; font-size: 0.9em; margin-top: 5px; }
+        button { background: #4CAF50; color: white; padding: 10px 15px; border: none; border-radius: 4px; cursor: pointer; }
+        button:hover { background: #45a049; }
+        .checkbox-group { display: flex; align-items: center; }
+        .checkbox-group input { width: auto; margin-right: 10px; }
+    </style>
+</head>
+<body>
+    <h1>Registration Form</h1>
+    
+    <form method="post">
+        <div class="form-group">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" value="<?php echo htmlspecialchars($username); ?>">
+            <?php if (isset($errors['username'])): ?>
+                <div class="error"><?php echo $errors['username']; ?></div>
+            <?php endif; ?>
+        </div>
+        
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" value="<?php echo htmlspecialchars($email); ?>">
+            <?php if (isset($errors['email'])): ?>
+                <div class="error"><?php echo $errors['email']; ?></div>
+            <?php endif; ?>
+        </div>
+        
+        <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password">
+            <?php if (isset($errors['password'])): ?>
+                <div class="error"><?php echo $errors['password']; ?></div>
+            <?php endif; ?>
+        </div>
+        
+        <div class="form-group">
+            <label for="confirm_password">Confirm Password:</label>
+            <input type="password" id="confirm_password" name="confirm_password">
+            <?php if (isset($errors['confirm_password'])): ?>
+                <div class="error"><?php echo $errors['confirm_password']; ?></div>
+            <?php endif; ?>
+        </div>
+        
+        <div class="form-group checkbox-group">
+            <input type="checkbox" id="remember" name="remember" <?php echo $remember ? 'checked' : ''; ?>>
+            <label for="remember">Remember me</label>
+        </div>
+        
+        <button type="submit">Register</button>
+    </form>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flexbox Card Layout</title>
+    <style>
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .card {
+            width: 300px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .card-content {
+            padding: 15px;
+        }
+        
+        .card h2 {
+            margin-top: 0;
+            color: #333;
+        }
+        
+        .card p {
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="card-container">
+        <div class="card">
+            <img src="https://via.placeholder.com/300x200" alt="Placeholder">
+            <div class="card-content">
+                <h2>Card Title 1</h2>
+                <p>This is a description for the first card. It contains some sample text to demonstrate the layout.</p>
+            </div>
+        </div>
+        
+        <div class="card">
+            <img src="https://via.placeholder.com/300x200" alt="Placeholder">
+            <div class="card-content">
+                <h2>Card Title 2</h2>
+                <p>This is a description for the second card. The flexbox layout allows these cards to arrange responsively.</p>
+            </div>
+        </div>
+        
+        <div class="card">
+            <img src="https://via.placeholder.com/300x200" alt="Placeholder">
+            <div class="card-content">
+                <h2>Card Title 3</h2>
+                <p>This is a description for the third card. Notice how they align neatly in rows and columns.</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
